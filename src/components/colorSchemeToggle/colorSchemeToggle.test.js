@@ -57,7 +57,6 @@ it('Component is initialized', () => {
         addEventListener: jest.fn()
     };
 
-    component.prepare();
     component.init();
     expect(window.StateMachine).toHaveBeenCalledTimes(1);
     expect(component.applyInitialState).toHaveBeenCalledTimes(1);

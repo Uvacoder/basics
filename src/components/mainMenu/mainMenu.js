@@ -1,7 +1,7 @@
 import Component from '../../helpers/component';
 
 export default class MainMenu extends Component {
-    prepare() {
+    init() {
         this.anchorLinks = this.el.querySelectorAll('a[href^="#"]');
 
         this.StateMachine = new StateMachine(this, {
@@ -21,9 +21,7 @@ export default class MainMenu extends Component {
                 },
             },
         });
-    }
 
-    init() {
         this.boundOnMenuClose = () => { EventBus.publish('onMenuClose', this.el); };
         EventBus.subscribe('onOverlayClose', this.boundOnMenuClose);
 

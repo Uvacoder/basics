@@ -1,7 +1,7 @@
 import Component from '../../helpers/component';
 
 export default class ColorSchemeToggle extends Component {
-    prepare() {
+    init() {
         this.StateMachine = new StateMachine(this, {
             colorScheme: {
                 value: window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light',
@@ -13,9 +13,7 @@ export default class ColorSchemeToggle extends Component {
                 },
             },
         });
-    }
 
-    init() {
         this.boundOnToggle = () => { this.onToggle(); };
         this.colorSchemeToggle.addEventListener('change', this.boundOnToggle);
         this.applyInitialState();

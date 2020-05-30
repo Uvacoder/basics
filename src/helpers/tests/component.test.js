@@ -23,14 +23,12 @@ it('Component is constructed', () => {
 it('Component is initialized', () => {
     const component = new Component(htmlElement);
     component.assignComponentElements = jest.fn();
-    component.prepare = jest.fn();
     component.init = jest.fn();
     component.publishReady = jest.fn();
 
     component.startComponent();
 
     expect(component.assignComponentElements).toHaveBeenCalledTimes(1);
-    expect(component.prepare).toHaveBeenCalledTimes(1);
     expect(component.init).toHaveBeenCalledTimes(1);
     expect(component.publishReady).toHaveBeenCalledTimes(1);
 })

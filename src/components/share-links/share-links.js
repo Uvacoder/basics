@@ -1,13 +1,11 @@
 import Component from '../../helpers/component';
 
 export default class shareLinks extends Component {
-    prepare() {
+    init() {
         this.title = this.el.dataset.shareLinksTitle || '';
         this.text = this.el.dataset.shareLinksText || '';
         this.url = this.el.dataset.shareLinksUrl;
-    }
 
-    init() {
         if (!this.url) { return; }
 
         this.el.removeAttribute('hidden');

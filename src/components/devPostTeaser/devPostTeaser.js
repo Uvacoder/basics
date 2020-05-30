@@ -2,7 +2,7 @@ import './devPostTeaser.scss';
 import Component from '../../helpers/component';
 
 export default class DevPostTeaser extends Component {
-    prepare() {
+    init() {
         this.postData = Object();
         this.api = 'https://dev.to/api/articles';
         this.id = this.el.dataset.devPostTeaserId ? this.el.dataset.devPostTeaserId : null;
@@ -25,9 +25,7 @@ export default class DevPostTeaser extends Component {
                 },
             },
         });
-    }
 
-    init() {
         if (!this.id) {
             this.errorMessage = 'No post id set';
             EventBus.publish('devPostTeaserError', this.el);

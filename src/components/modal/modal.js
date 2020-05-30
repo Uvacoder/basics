@@ -2,7 +2,7 @@ import './modal.scss';
 import Component from '../../helpers/component';
 
 export default class Modal extends Component {
-    prepare() {
+    init() {
         this.StateMachine = new StateMachine(this, {
             toggle: {
                 value: 'closed',
@@ -16,9 +16,7 @@ export default class Modal extends Component {
                 },
             },
         });
-    }
 
-    init() {
         this.boundOnModalClose = () => { EventBus.publish('onModalClose', this.el); };
         EventBus.subscribe('onOverlayClose', this.boundOnModalClose);
         this.closeButton.addEventListener('click', this.boundOnModalClose);

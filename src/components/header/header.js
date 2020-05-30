@@ -1,7 +1,7 @@
 import Component from '../../helpers/component';
 
 export default class Header extends Component {
-    prepare() {
+    init() {
         this.StateMachine = new StateMachine(this, {
             menuButton: {
                 value: 'inactive',
@@ -9,9 +9,7 @@ export default class Header extends Component {
                 active: {},
             },
         });
-    }
 
-    init() {
         this.boundToggleMenuButton = () => { this.toggleMenuButton(); };
         this.menuButton.addEventListener('click', this.boundToggleMenuButton);
         this.menuLabel.removeAttribute('for');

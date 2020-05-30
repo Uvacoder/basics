@@ -3,7 +3,7 @@ import HeavyCalculationWorker from './heavyCalculation.worker';
 import './heavyCalculation.scss';
 
 export default class HeavyCalculation extends Component {
-    prepare() {
+    init() {
         const parsedCurrent = parseInt(this.calculatedNumber.innerText, 10);
         this.current = typeof (parsedCurrent) !== 'number' ? parsedCurrent : 0;
         this.finish = 999999999;
@@ -20,9 +20,7 @@ export default class HeavyCalculation extends Component {
                 },
             },
         });
-    }
 
-    init() {
         EventBus.publish('heavyCaluclationProgress', this.el);
         this.counter.postMessage({
             count: {

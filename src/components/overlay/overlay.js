@@ -1,7 +1,7 @@
 import Component from '../../helpers/component';
 
 export default class Overlay extends Component {
-    prepare() {
+    init() {
         this.assignedEl = null;
 
         this.StateMachine = new StateMachine(this, {
@@ -17,9 +17,7 @@ export default class Overlay extends Component {
                 },
             },
         });
-    }
 
-    init() {
         this.handleMenu();
         this.handleModal();
 
