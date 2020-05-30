@@ -132,4 +132,10 @@ export default class Carousel extends Component {
                 : lastItem,
         ];
     }
+
+    destroy() {
+        this.el.removeEventListener('swipe', this.boundOnSwipe);
+        this.el.removeEventListener('swipestop', this.boundOnSwipeStop);
+        this.el.removeEventListener('keyup', this.boundHandleKeys);
+    }
 }

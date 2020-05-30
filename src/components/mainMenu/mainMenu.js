@@ -63,4 +63,10 @@ export default class MainMenu extends Component {
             anchorLink.addEventListener('click', this.boundOnMenuClose);
         });
     }
+
+    destroy() {
+        Array.from(this.anchorLinks).forEach((anchorLink) => {
+            anchorLink.removeEventListener('click', this.boundOnMenuClose);
+        });
+    }
 }

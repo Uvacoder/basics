@@ -33,4 +33,8 @@ export default class Header extends Component {
     toggleAriaAttr() {
         this.menuButton.setAttribute('aria-expanded', this.StateMachine.states.menuButton.Value === 'active');
     }
+
+    destroy() {
+        this.menuButton.removeEventListener('click', this.boundToggleMenuButton);
+    }
 }

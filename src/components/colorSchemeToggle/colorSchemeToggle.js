@@ -33,4 +33,8 @@ export default class ColorSchemeToggle extends Component {
             this.colorSchemeToggle.checked = window.matchMedia('(prefers-color-scheme:dark)').matches;
         }
     }
+
+    destroy() {
+        this.colorSchemeToggle.removeEventListener('change', this.boundOnToggle);
+    }
 }

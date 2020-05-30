@@ -34,4 +34,8 @@ export default class Modal extends Component {
         this.el.setAttribute('aria-hidden', true);
         FocusTrap.Element = null;
     }
+
+    destroy() {
+        this.closeButton.removeEventListener('click', this.boundOnModalClose);
+    }
 }

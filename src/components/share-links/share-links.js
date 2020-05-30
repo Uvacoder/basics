@@ -24,4 +24,9 @@ export default class shareLinks extends Component {
             });
         }
     }
+
+    destroy() {
+        this.el.addAttribute('hidden', 'hidden');
+        this.el.removeEventListener('click', this.boundOnClick);
+    }
 }

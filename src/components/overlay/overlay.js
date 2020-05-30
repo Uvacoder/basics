@@ -65,7 +65,7 @@ export default class Overlay extends Component {
                 EventBus.publish('onOverlayClose', this.el);
             }
         };
-        EventBus.subscribe('onModalClose', this.menuClosed);
+        EventBus.subscribe('onModalClose', this.modalClosed);
     }
 
     // eslint-disable-next-line class-methods-use-this
@@ -86,5 +86,11 @@ export default class Overlay extends Component {
 
     unassignElement() {
         this.assignedEl = null;
+    }
+
+    destroy() {
+        this.unassignElement();
+        this.el.removeEventListener('click', this.boundOnClick);
+        document.removeEventListener('keyup', this.boundOnKeyUp);
     }
 }
