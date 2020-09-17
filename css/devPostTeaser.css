@@ -1,0 +1,2 @@
+.dev-post-teaser{position:relative}.dev-post-teaser>*{opacity:0;transition:opacity .2s ease-out}.dev-post-teaser .loader{position:absolute;top:0;left:0}.dev-post-teaser__link{opacity:inherit}.dev-post-teaser__reactions,.dev-post-teaser__comments{margin-right:var(--spacing-x)}.dev-post-teaser:not([data-state-fetch]) .loader,.dev-post-teaser[data-state-fetch="loading"] .loader{opacity:1}.dev-post-teaser[data-state-fetch="loaded"]>*{opacity:1}.dev-post-teaser[data-state-fetch="loaded"] .loader{opacity:0}.dev-post-teaser[data-state-fetch="error"]{display:none}
+

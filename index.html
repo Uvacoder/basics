@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Some Basic Components</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="some basic components">
+    <meta name="theme-color" content="#1a1a1a">
+<link href="css/styles.css?d2d159694d7a0ca105a7" rel="stylesheet"><link rel="preload" href="js/bundle.40fdc7e2f10899c82d18.js?d2d159694d7a0ca105a7" as="script"/></head>
+
+<body data-component="index">
+    <div data-component="viewportManager"></div>
+    <div class="overlay" data-component="overlay"></div>
+    <header data-component="header" class="header">
+    <h1 class="header__title">
+        <a href="https://github.com/iamschulz/basics" class="header__home-link">Basics</a>
+    </h1>
+    <button data-header-el="menuButton" class="header__menu-button" aria-expanded="false">
+        <label for="mainMenuCheck" data-header-el="menuLabel">
+            <svg class="header__menu-icon" width="28" height="22" xmlns="http://www.w3.org/2000/svg" version="1.1" fill="currentColor" stroke="0">
+                <rect x="0" y="0" width="28" height="4"/>
+                <rect x="0" y="9" width="28" height="4"/>
+                <rect x="0" y="18" width="28" height="4"/>
+            </svg>
+            <span class="header__menu-text">Menu</span>
+        </label>
+    </button>
+</header>
+    <nav data-component="mainMenu" class="main-menu">
+    <input type="checkbox" id="mainMenuCheck" class="main-menu__check" data-main-menu-el="checkbox">
+    <ul class="main-menu__list" data-main-menu-el="menuList">
+        <li class="main-menu__item">
+            <a href="#whatsin" class="main-menu__link">What's in?</a>
+        </li>
+        <li class="main-menu__item">
+            <a href="#howtoinstall" class="main-menu__link">How to install?</a>
+        </li>
+        <li class="main-menu__item">
+            <a href="#designprinciples" class="main-menu__link">Design principles</a>
+        </li>
+        <li class="main-menu__item">
+            <a href="#examples" class="main-menu__link">Examples</a>
+        </li>
+        <li class="main-menu__additional-items">
+            <ul class="main-menu__additional-list">
+                <li class="main-menu__additional-item">
+                    <div data-component="colorSchemeToggle" class="color-scheme-toggle">
+    <input type="checkbox" class="color-scheme-toggle__input" data-color-scheme-toggle-el="colorSchemeToggle" id="color-scheme-toggle">
+    <label class="color-scheme-toggle__label" for="color-scheme-toggle">Dark Mode</label>
+</div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+    <main>
+        <article>
+    <header>
+        <h1>Hi ✌️</h1>
+    </header>
+    <p>This is a collection of some components that I use from time to time. You can use those components on their own, but when you put it all together, you almost have something lightweight framework-y and fun.<br>
+    Beware this is a work in progress. It will propably be forever, but right now I haven't even finished writing this document. I'm currently working on more detailed descriptions of everything. Please be patient :)<br>
+    <a href="https://github.com/iamschulz/basics">Here's</a> the repo.</p>
+    <h2><a id="whatsin">What's in?</a></h2>
+    <ul>
+        <li><a href="#eventbus">Event Bus</a></li>
+        <li><a href="#statemachine">State Machine</a></li>
+        <li>
+            <a href="#componentloader">Component Loader</a>
+            <ul>
+                <li><a href="#breakpoint">Breakpoint Manager</a></li>
+                <li><a href="#themeswitch">Theme Switch</a></li>
+                <li><a href="#overlay">Overlay</a></li>
+                <li><a href="#mainmenu">Offcanvas Menu</a></li>
+                <li><s><a href="#modal">Modal</a></s></li>
+                <li><a href="#carousel">Carousel</a></li>
+                <li><s><a href="#code">Code Section</a></s></li>
+                <li><a href="#devpostteaser">Article Teaser for DEV.to</a></li>
+                <li><a href="#worker">Prototype for Multithreaded Component</a></li>
+            </ul>
+        </li>
+        <li><a href="#styles">A CSS theme</a></li>
+    </ul>
+
+    <hr>
+
+    <h2><a id="howtoinstall">How to install?</a></h2>
+    <p>Clone the repo and work from there. NPM stuff is coming soon.</p>
+
+    <hr>
+
+    <h2><a id="designprinciples">Design Principles</a></h2>
+    <p>These components are built with <a href="https://en.wikipedia.org/wiki/Progressive_enhancement">Progressive Enhancement</a>, <a href="https://en.wikipedia.org/wiki/Separation_of_concerns#HTML,_CSS,_JavaScript">Separation of Concerns</a> and <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Accessibility</a> in mind.</p>
+    <a href="https://dev.to/iamschulz/in-defense-of-the-separation-of-concerns-24m0">Here's</a> why I'm choosing this approach.
+
+    <blockquote>
+        Progressive enhancement is a strategy for web design that emphasizes core webpage content first. This strategy then progressively adds more nuanced and technically rigorous layers of presentation and features on top of the content as the end-user's browser/internet connection allow. The proposed benefits of this strategy are that it allows everyone to access the basic content and functionality of a web page, using any browser or Internet connection, while also providing an enhanced version of the page to those with more advanced browser software or greater bandwidth.
+        <footer><cite>Read more on <a href="https://en.wikipedia.org/wiki/Progressive_enhancement">Wikipedia</a></cite></footer>
+    </blockquote>
+
+    <blockquote>
+        HyperText Markup Language (HTML), Cascading Style Sheets (CSS), and JavaScript (JS) are complementary languages used in the development of web pages and websites. HTML is mainly used for organization of webpage content, CSS is used for definition of content presentation style, and JS defines how the content interacts and behaves with the user. Historically, this was not the case: prior to the introduction of CSS, HTML performed both duties of defining semantics and style.
+        <footer><cite>Read more on <a href="https://en.wikipedia.org/wiki/Separation_of_concerns#HTML,_CSS,_JavaScript">Wikipedia</a></cite></footer>
+    </blockquote>
+
+    I'm trying to achieve:
+    <ul>
+        <li>clean, semantic HTML</li>
+        <li>a usable site without CSS or JS</li>
+        <li>a usable site on assistive technologies like screen readers and text browsers</li>
+        <li>a fast loading and slim site</li>
+        <li>no shipped node depedencies</li>
+        <li>independent components</li>
+        <li>a good balance between a platform to build upon and components to use on themselves</li>
+    </ul>
+
+    <hr>
+
+    <h2><a id="examples">Examples</a></h2>
+
+    <h3><a id="eventbus">Event Bus</a></h3>
+    <p>This site lets its components communicate with each other via an <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern">event bus</a>.</p>
+    <p>I'm currently working on a more detailed description and a manual. Until that's done, you might have to dig through my code on how to use it. I suggest starting <a href="https://github.com/iamschulz/basics/blob/master/src/helpers/eventBus.js">here</a> or <a href="https://github.com/iamschulz/basics/blob/master/src/components/mainMenu/mainMenu.js">here</a>.</p>
+
+    <hr>
+
+    <h3><a id="statemachine">State Machine</a></h3>
+    <p>A <a href="https://en.wikipedia.org/wiki/Finite-state_machine">state machine</a> is used to process predefined states. You can bind methods and styles to states.</p>
+    <p>I'm currently working on a more detailed description and a manual. Until that's done, you might have to dig through my code on how to use it. I suggest starting <a href="https://github.com/iamschulz/basics/blob/master/src/helpers/stateMachine.js">here</a>.</p>
+
+    <hr>
+
+    <h3><a id="componentloader">Component Loader</a></h3>
+    <p>A component loader proides some basic funtionality and bootstrapping for components, making it easier to set up.</p>
+    <p>My components are basically just html files with optional css- and js-files. You first write the markup, and then build styles and javascript upon that.</p>
+    <p>I'm currently working on a more detailed description and a manual. Until that's done, you might have to dig through my code on how to use it. I suggest starting <a href="https://github.com/iamschulz/basics/blob/master/src/helpers/componentLoader.js">here</a>.</p>
+
+    <hr>
+
+    <h3><a id="mainmenu">Main Menu</a></h3>
+    <p>It's this site's main menu. On smaller viewports it's a drawer, on larger viewports it's a big ol' menu. I try to keep at as accessible as possible and working without javascript.</p>
+    <p><a href="https://github.com/iamschulz/basics/tree/master/src/components/mainMenu">Here's</a> the component.</p>
+
+    <hr>
+
+    <h3><a id="devpostteaser">Article Teaser for DEV.to</a></h3>
+    <p>Fetch and display an article teaser to a post on <a href="https://dev.to">DEV.to</a></p>
+    <article data-component="devPostTeaser" data-dev-post-teaser-id="132099" data-state-fetch="loading" class="dev-post-teaser">
+    <link rel="stylesheet" href="./css/devPostTeaser.css" />
+    <span class="loader">
+    <span class="loader__text">Loading</span>
+</span>
+    <h1 class="dev-post-teaser__title">
+        <a data-dev-post-teaser-el="link" class="dev-post-teaser__link">
+            <span data-dev-post-teaser-el="title">No post specified</span>
+        </a>
+    </h1>
+    <span class="dev-post-teaser__reactions">
+        ❤️ <span data-dev-post-teaser-el="reactions"></span>
+    </span>
+    <span class="dev-post-teaser__comments">
+        💬 <span data-dev-post-teaser-el="comments"></span>
+    </span>
+</article>
+    <p><a href="https://github.com/iamschulz/basics/tree/master/src/components/devPostTeaser">Here's</a> the component.</p>
+
+    <hr>
+
+    <h3><a id="worker">Prototype for Multithreaded Component</a></h3>
+    <p>This component performs a costly operation to count up to a certain number, but is deferred to a webworker. I try to keep this prototype as simple as possible in order to asbtract it later.</p>
+    <div data-component="heavyCalculation" class="heavy-calculation">
+    <link rel="stylesheet" href="./css/heavyCalculation.css" />
+    <span class="loader">
+    <span class="loader__text">Loading</span>
+</span>
+    <div data-heavy-calculation-el="counter" class="heavy-calculation__counter">
+        counting up: <span data-heavy-calculation-el="calculatedNumber">0</span>
+    </div>
+</div>
+    <p><a href="https://github.com/iamschulz/basics/tree/master/src/components/heavyCalculation">Here's</a> the component.</p>
+
+    <hr>
+
+    <h3><a id="carousel">Carousel</a></h3>
+    <p>A simple carousel and lightweight carousel featuring pointer and touch support and progressively enhanced funcionality. Future iterations of this will include buttons, a center mode and an accessibility audit.</p>
+    <div class="carousel" data-component="carousel" tabindex="0">
+    <link rel="stylesheet" href="./css/carousel.css" />
+    <div class="carousel__grid" data-carousel-el="grid">
+        <img class="carousel__item" src="https://picsum.photos/300/200?random=1" width="300" height="200" alt="placeholder image" loading="Lazy">
+        <div class="carousel__item" style="min-width: 200px;">Wild slidey boi!<br><a href="/">With a Link!</a></div>
+        <img class="carousel__item" src="https://picsum.photos/400/200?random=2" width="400" height="200" alt="placeholder image" loading="Lazy">
+        <img class="carousel__item" src="https://picsum.photos/300/300?random=3" width="300" height="300" alt="placeholder image" loading="Lazy">
+        <img class="carousel__item" src="https://picsum.photos/300/200?random=4" width="300" height="200" alt="placeholder image" loading="Lazy">
+        <img class="carousel__item" src="https://picsum.photos/300/200?random=5" width="300" height="200" alt="placeholder image" loading="Lazy">
+    </div>
+</div>
+
+    <p><a href="https://github.com/iamschulz/basics/tree/master/src/components/carousel">Here's</a> the component.</p>
+
+    <h3><a id="modal">Modal</a></h3>
+    <p>A simple modal component.</p>
+    <button data-component="modalTrigger">Show Modal</button>
+    <p><a href="https://github.com/iamschulz/basics/tree/master/src/components/modal">Here's</a> the component.</p>
+
+    <h3><a id="modal">Share Links</a></h3>
+    <nav class="share-links">
+    <a 
+        class="share-links__link" 
+        href="http://www.twitter.com/share?url=https%3A%2F%2Fiamschulz.github.io%2Fbasics%2F"
+    >
+        Twitter
+    </a>
+    <a 
+        class="share-links__link" 
+        href="https://dev.to/new?prefill=---
+ title: Basics
+ published: false
+ tags: 
+ ---
+ 
+ 
+ 
+ [Basics](https://iamschulz.github.io/basics/) (via @iamschulz) 
+"
+    >
+        DEV
+    </a>
+    <a 
+        class="share-links__link" 
+        href="https://www.linkedin.com/share-links/share-offsite/?url=https%3A%2F%2Fiamschulz.github.io%2Fbasics%2F"
+    >
+        LinkedIn
+    </a>
+    <a 
+        hidden
+        data-component="shareLinks"
+        data-share-links-title="Basic Components"
+        data-share-links-text="Some basic components that I use from time to time. Also a bit of JS framework around them."
+        data-share-links-url="https://iamschulz.github.io/basics/"
+        class="share-links__link" 
+        href="#"
+    >
+        More Options
+    </a>
+</nav>
+    <p><a href="https://github.com/iamschulz/basics/tree/master/src/components/share-links">Here's</a> the component.</p>
+</article>
+        <link rel="stylesheet" href="./css/modal.css" />
+<div data-component="modal" class="modal" aria-hidden="true" role="dialog">
+    <section class="modal__inner">
+        <button class="modal__close" data-modal-el="closeButton" title="Close">
+            <span class="is-visually-hidden">Close</span>
+        </button>
+        <h2 class="modal__headline">Modal Test</h2>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    </section>
+</div>
+    </main>
+<script type="text/javascript" src="js/bundle.40fdc7e2f10899c82d18.js?d2d159694d7a0ca105a7" defer></script></body>
