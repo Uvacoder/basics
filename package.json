@@ -4,8 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "domino": "^2.1.6",
     "webpack": "^4.41.2",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "xmldom": "^0.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
